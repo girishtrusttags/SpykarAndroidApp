@@ -1,0 +1,123 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+
+}
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.trusttags"
+        minSdkVersion 21
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        pepe {
+            applicationIdSuffix ".pepe"
+            resValue "string", "app_name", "Pepe"
+            manifestPlaceholders = [
+                    appIcon: "@mipmap/ic_launcher_pepe",
+                    appIconRound: "@mipmap/ic_launcher_pepe"
+            ]
+        }
+        spykar {
+            applicationIdSuffix ".spykar"
+            resValue "string", "app_name", "Spykar"
+            manifestPlaceholders = [
+                    appIcon: "@mipmap/ic_launcher",
+                    appIconRound: "@mipmap/ic_launcher"
+            ]
+        }
+        pantaloons {
+            applicationIdSuffix ".pantaloons"
+            resValue "string", "app_name", "Pantaloons"
+            manifestPlaceholders = [
+                    appIcon: "@mipmap/ic_launcher_pantaloons",
+                    appIconRound: "@mipmap/ic_launcher_pantaloons"
+            ]
+        }
+        biba {
+            applicationIdSuffix ".biba"
+            resValue "string", "app_name", "Biba"
+            manifestPlaceholders = [
+                    appIcon: "@mipmap/ic_launcher_biba",
+                    appIconRound: "@mipmap/ic_launcher_biba"
+            ]
+        }
+        clovia {
+            applicationIdSuffix ".clovia"
+            resValue "string", "app_name", "Clovia"
+            manifestPlaceholders = [
+                    appIcon: "@mipmap/ic_launcher_clovia",
+                    appIconRound: "@mipmap/ic_launcher_clovia"
+            ]
+        }
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // retrofit, gson
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    /* Rx with Retrofit2 support. */
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.8.1'
+
+    // OkHttp networking.
+    implementation 'com.squareup.okhttp3:okhttp:4.5.0'
+
+    // barcode reader library
+    //implementation 'info.androidhive:barcode-reader:1.1.5'
+
+    // google vision library
+    implementation 'com.google.android.gms:play-services-vision:17.0.2'
+
+    //dimention sdp api
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
+    implementation project(':barcode-reader')
+
+    // barcode reader
+    //implementation 'com.github.Brayan1863:Barcode-Reader:0.1.1'
+
+
+    //dimention sdp api
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
+}
